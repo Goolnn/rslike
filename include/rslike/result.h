@@ -15,7 +15,33 @@ typedef struct {              \
         T ok;                 \
         E err;                \
     };                        \
-} Result ## _ ## T ## _ ## E
+} Result ## _ ## T ## _ ## E; \
+Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## ok(  \
+    Result ## _ ## T ## _ ## E self                      \
+) {                                                      \
+    if (self.status == Result_Ok) {                      \
+        return (Option ## _ ## T) {                      \
+            .status = Option_Some,                       \
+            .some = self.ok                              \
+        };                                               \
+    }                                                    \
+    return (Option ## _ ## T) {                          \
+        .status = Option_None,                           \
+    };                                                   \
+}                                                        \
+Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## err( \
+    Result ## _ ## T ## _ ## E self                      \
+) {                                                      \
+    if (self.status == Result_Err) {                     \
+        return (Option ## _ ## T) {                      \
+            .status = Option_Some,                       \
+            .some = self.err                             \
+        };                                               \
+    }                                                    \
+    return (Option ## _ ## T) {                          \
+        .status = Option_None,                           \
+    };                                                   \
+}
 
 #define Ok(T, E, value)        \
 (Result ## _ ## T ## _ ## E) { \
