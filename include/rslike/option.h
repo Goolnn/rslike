@@ -53,4 +53,10 @@ typedef struct {         \
     }                                                       \
 }
 
+#define if_let_some(T, self, x, f) \
+if (self.status == Option_Some) {  \
+    T x = self.some;               \
+    f                              \
+}
+
 #endif
