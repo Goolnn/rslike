@@ -89,4 +89,16 @@ Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## err( \
     }                                                      \
 }
 
+#define if_let_ok(T, self, x, f) \
+if (self.status == Result_Ok) {  \
+    T x = self.ok;               \
+    f                            \
+}
+
+#define if_let_err(E, self, x, f) \
+if (self.status == Result_Err) {  \
+    E x = self.err;               \
+    f                             \
+}
+
 #endif
