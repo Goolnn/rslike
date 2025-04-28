@@ -8,14 +8,14 @@ typedef enum {
 
 #define Result(T, E) Result ## _ ## T ## _ ## E
 
-#define define_result(T, E)   \
-typedef struct {              \
-    Result status;            \
-    union {                   \
-        T ok;                 \
-        E err;                \
-    };                        \
-} Result ## _ ## T ## _ ## E; \
+#define define_result(T, E)                              \
+typedef struct {                                         \
+    Result status;                                       \
+    union {                                              \
+        T ok;                                            \
+        E err;                                           \
+    };                                                   \
+} Result ## _ ## T ## _ ## E;                            \
 Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## ok(  \
     Result ## _ ## T ## _ ## E self                      \
 ) {                                                      \
@@ -77,5 +77,16 @@ Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## err( \
 
 #define result_ok(T, E, self) Result ## _ ## T ## _ ## E ## _ ## ok(self)
 #define result_err(T, E, self) Result ## _ ## T ## _ ## E ## _ ## err(self)
+
+#define result_unwrap(T, E, self) (self.ok);               \
+{                                                          \
+    if (self.status == Result_Err) {                       \
+        fprintf(                                           \
+            stderr,                                        \
+            "called `Result::unwrap()` on a `Err` value\n" \
+        );                                                 \
+        abort();                                           \
+    }                                                      \
+}
 
 #endif
