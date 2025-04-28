@@ -19,6 +19,17 @@ typedef struct {         \
     };                   \
 } Option ## _ ## T
 
+#define Some(T, value)     \
+(Option ## _ ## T) {       \
+    .status = Option_Some, \
+    .some = value,         \
+}
+
+#define None(T)            \
+(Option ## _ ## T) {       \
+    .status = Option_None, \
+}
+
 #define option_is_some(self) (self.status == Option_Some)
 
 #define option_is_some_and(T, self, x, f) (self.status == Option_Some); \
