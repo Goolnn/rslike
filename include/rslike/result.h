@@ -75,4 +75,7 @@ Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## err( \
     }                                                                 \
 }
 
+#define result_ok(T, E, self) Result ## _ ## T ## _ ## E ## _ ## ok(self)
+#define result_err(T, E, self) Result ## _ ## T ## _ ## E ## _ ## err(self)
+
 #endif
