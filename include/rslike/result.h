@@ -1,6 +1,7 @@
 #ifndef GOOLNN_RSLIKE_RESULT_H
 #define GOOLNN_RSLIKE_RESULT_H
 
+#include "rslike/priv/result.h"
 #include "rslike/priv/util.h"
 
 typedef enum {
@@ -8,7 +9,7 @@ typedef enum {
     Result_Err
 } Result;
 
-#define Result(T, E) Result ## _ ## T ## _ ## E
+#define Result(T, E) _priv_combine_result(T, E)
 
 #define define_result(T, E)                              \
 typedef struct {                                         \
