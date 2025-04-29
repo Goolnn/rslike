@@ -104,4 +104,16 @@ if (self.status == Result_Err) {  \
     f                             \
 }
 
+#define handle_result(T, E, self, handle_ok, handle_err) \
+{                                                        \
+    Result(T, E) result = self;                          \
+    if (result.status == Result_Ok) {                    \
+        T ok = result.ok;                                \
+        handle_ok;                                       \
+    } else if (result.status == Result_Err) {            \
+        E err = result.err;                              \
+        handle_err;                                      \
+    }                                                    \
+}
+
 #endif
