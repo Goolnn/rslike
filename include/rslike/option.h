@@ -17,16 +17,16 @@ typedef struct {         \
     union {              \
         T some;          \
     };                   \
-} Option ## _ ## T
+} Option(T)
 
 #define Some(T, value)     \
-(Option ## _ ## T) {       \
+(Option(T)) {       \
     .status = Option_Some, \
     .some = value,         \
 }
 
 #define None(T)            \
-(Option ## _ ## T) {       \
+(Option(T)) {       \
     .status = Option_None, \
 }
 
