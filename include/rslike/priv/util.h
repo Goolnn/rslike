@@ -33,4 +33,6 @@
 
 #define _priv_unwrap(...) __VA_ARGS__
 
+#define _priv_combine(n, v) _priv_select(n, v)
+
 #endif

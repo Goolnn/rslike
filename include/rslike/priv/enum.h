@@ -3,8 +3,6 @@
 
 #include "rslike/priv/util.h"
 
-#define _priv_combine(n, v) n ## _ ## v
-
 #define _priv_varient_0(n)
 #define _priv_varient_1(n, v) _priv_combine(n, v),
 #define _priv_varient_2(n, v, ...) _priv_combine(n, v), _priv_varient_1(n, __VA_ARGS__)
