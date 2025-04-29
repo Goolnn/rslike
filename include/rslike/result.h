@@ -11,39 +11,39 @@ typedef enum {
 
 #define Result(T, E) _priv_combine_result(T, E)
 
-#define define_result(T, E)                              \
-typedef struct {                                         \
-    Result status;                                       \
-    union {                                              \
-        T ok;                                            \
-        E err;                                           \
-    };                                                   \
-} Result(T, E);                                          \
-inline Option(T) _priv_combine(Result(T, E), ok)(        \
-    Result(T, E) self                                    \
-) {                                                      \
-    if (self.status == Result_Ok) {                      \
-        return (Option(T)) {                             \
-            .status = Option_Some,                       \
-            .some = self.ok                              \
-        };                                               \
-    }                                                    \
-    return (Option(T)) {                                 \
-        .status = Option_None,                           \
-    };                                                   \
-}                                                        \
-inline Option(E) _priv_combine(Result(T, E), err)(       \
-    Result(T, E) self                                    \
-) {                                                      \
-    if (self.status == Result_Err) {                     \
-        return (Option(E)) {                             \
-            .status = Option_Some,                       \
-            .some = self.err                             \
-        };                                               \
-    }                                                    \
-    return (Option(E)) {                                 \
-        .status = Option_None,                           \
-    };                                                   \
+#define define_result(T, E)                               \
+typedef struct {                                          \
+    Result status;                                        \
+    union {                                               \
+        T ok;                                             \
+        E err;                                            \
+    };                                                    \
+} Result(T, E);                                           \
+static inline Option(T) _priv_combine(Result(T, E), ok)(  \
+    Result(T, E) self                                     \
+) {                                                       \
+    if (self.status == Result_Ok) {                       \
+        return (Option(T)) {                              \
+            .status = Option_Some,                        \
+            .some = self.ok                               \
+        };                                                \
+    }                                                     \
+    return (Option(T)) {                                  \
+        .status = Option_None,                            \
+    };                                                    \
+}                                                         \
+static inline Option(E) _priv_combine(Result(T, E), err)( \
+    Result(T, E) self                                     \
+) {                                                       \
+    if (self.status == Result_Err) {                      \
+        return (Option(E)) {                              \
+            .status = Option_Some,                        \
+            .some = self.err                              \
+        };                                                \
+    }                                                     \
+    return (Option(E)) {                                  \
+        .status = Option_None,                            \
+    };                                                    \
 }
 
 #define Ok(T, E, value)        \
