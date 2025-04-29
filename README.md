@@ -20,7 +20,7 @@ fn(add, (
     let(sum, i32) = a + b;
 
     if (sum > 32) {
-        return Err(i32, Error(Calc), Varient(Error(Calc), TooBig));
+        return Err(i32, Error(Calc), Variant(Error(Calc), TooBig));
     }
 
     return Ok(i32, Error(Calc), sum);
@@ -38,6 +38,3 @@ fn(main, (), int) {
     return 0;
 }
 ```
-
-
-
