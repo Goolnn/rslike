@@ -24,151 +24,79 @@
     7,  6,  5,  4,  3,  2,  1,  0                            \
 )
 
-#define _priv_parse_0(...)
+#define _priv_exchange(a, b) b a
 
-#define _priv_parse_2( \
-    arg_1_N, arg_1_T,  \
-    ...                \
-) arg_1_T arg_1_N
+#define _priv_parse_0()
+#define _priv_parse_1(arg) _priv_exchange arg
+#define _priv_parse_2(arg, ...) _priv_exchange arg, _priv_parse_1(__VA_ARGS__)
+#define _priv_parse_3(arg, ...) _priv_exchange arg, _priv_parse_2(__VA_ARGS__)
+#define _priv_parse_4(arg, ...) _priv_exchange arg, _priv_parse_3(__VA_ARGS__)
+#define _priv_parse_5(arg, ...) _priv_exchange arg, _priv_parse_4(__VA_ARGS__)
+#define _priv_parse_6(arg, ...) _priv_exchange arg, _priv_parse_5(__VA_ARGS__)
+#define _priv_parse_7(arg, ...) _priv_exchange arg, _priv_parse_6(__VA_ARGS__)
+#define _priv_parse_8(arg, ...) _priv_exchange arg, _priv_parse_7(__VA_ARGS__)
+#define _priv_parse_9(arg, ...) _priv_exchange arg, _priv_parse_8(__VA_ARGS__)
+#define _priv_parse_10(arg, ...) _priv_exchange arg, _priv_parse_9(__VA_ARGS__)
+#define _priv_parse_11(arg, ...) _priv_exchange arg, _priv_parse_10(__VA_ARGS__)
+#define _priv_parse_12(arg, ...) _priv_exchange arg, _priv_parse_11(__VA_ARGS__)
+#define _priv_parse_13(arg, ...) _priv_exchange arg, _priv_parse_12(__VA_ARGS__)
+#define _priv_parse_14(arg, ...) _priv_exchange arg, _priv_parse_13(__VA_ARGS__)
+#define _priv_parse_15(arg, ...) _priv_exchange arg, _priv_parse_14(__VA_ARGS__)
+#define _priv_parse_16(arg, ...) _priv_exchange arg, _priv_parse_15(__VA_ARGS__)
+#define _priv_parse_17(arg, ...) _priv_exchange arg, _priv_parse_16(__VA_ARGS__)
+#define _priv_parse_18(arg, ...) _priv_exchange arg, _priv_parse_17(__VA_ARGS__)
+#define _priv_parse_19(arg, ...) _priv_exchange arg, _priv_parse_18(__VA_ARGS__)
+#define _priv_parse_20(arg, ...) _priv_exchange arg, _priv_parse_19(__VA_ARGS__)
+#define _priv_parse_21(arg, ...) _priv_exchange arg, _priv_parse_20(__VA_ARGS__)
+#define _priv_parse_22(arg, ...) _priv_exchange arg, _priv_parse_21(__VA_ARGS__)
+#define _priv_parse_23(arg, ...) _priv_exchange arg, _priv_parse_22(__VA_ARGS__)
+#define _priv_parse_24(arg, ...) _priv_exchange arg, _priv_parse_23(__VA_ARGS__)
+#define _priv_parse_25(arg, ...) _priv_exchange arg, _priv_parse_24(__VA_ARGS__)
+#define _priv_parse_26(arg, ...) _priv_exchange arg, _priv_parse_25(__VA_ARGS__)
+#define _priv_parse_27(arg, ...) _priv_exchange arg, _priv_parse_26(__VA_ARGS__)
+#define _priv_parse_28(arg, ...) _priv_exchange arg, _priv_parse_27(__VA_ARGS__)
+#define _priv_parse_29(arg, ...) _priv_exchange arg, _priv_parse_28(__VA_ARGS__)
+#define _priv_parse_30(arg, ...) _priv_exchange arg, _priv_parse_29(__VA_ARGS__)
+#define _priv_parse_31(arg, ...) _priv_exchange arg, _priv_parse_30(__VA_ARGS__)
+#define _priv_parse_32(arg, ...) _priv_exchange arg, _priv_parse_31(__VA_ARGS__)
+#define _priv_parse_33(arg, ...) _priv_exchange arg, _priv_parse_32(__VA_ARGS__)
+#define _priv_parse_34(arg, ...) _priv_exchange arg, _priv_parse_33(__VA_ARGS__)
+#define _priv_parse_35(arg, ...) _priv_exchange arg, _priv_parse_34(__VA_ARGS__)
+#define _priv_parse_36(arg, ...) _priv_exchange arg, _priv_parse_35(__VA_ARGS__)
+#define _priv_parse_37(arg, ...) _priv_exchange arg, _priv_parse_36(__VA_ARGS__)
+#define _priv_parse_38(arg, ...) _priv_exchange arg, _priv_parse_37(__VA_ARGS__)
+#define _priv_parse_39(arg, ...) _priv_exchange arg, _priv_parse_38(__VA_ARGS__)
+#define _priv_parse_40(arg, ...) _priv_exchange arg, _priv_parse_39(__VA_ARGS__)
+#define _priv_parse_41(arg, ...) _priv_exchange arg, _priv_parse_40(__VA_ARGS__)
+#define _priv_parse_42(arg, ...) _priv_exchange arg, _priv_parse_41(__VA_ARGS__)
+#define _priv_parse_43(arg, ...) _priv_exchange arg, _priv_parse_42(__VA_ARGS__)
+#define _priv_parse_44(arg, ...) _priv_exchange arg, _priv_parse_43(__VA_ARGS__)
+#define _priv_parse_45(arg, ...) _priv_exchange arg, _priv_parse_44(__VA_ARGS__)
+#define _priv_parse_46(arg, ...) _priv_exchange arg, _priv_parse_45(__VA_ARGS__)
+#define _priv_parse_47(arg, ...) _priv_exchange arg, _priv_parse_46(__VA_ARGS__)
+#define _priv_parse_48(arg, ...) _priv_exchange arg, _priv_parse_47(__VA_ARGS__)
+#define _priv_parse_49(arg, ...) _priv_exchange arg, _priv_parse_48(__VA_ARGS__)
+#define _priv_parse_50(arg, ...) _priv_exchange arg, _priv_parse_49(__VA_ARGS__)
+#define _priv_parse_51(arg, ...) _priv_exchange arg, _priv_parse_50(__VA_ARGS__)
+#define _priv_parse_52(arg, ...) _priv_exchange arg, _priv_parse_51(__VA_ARGS__)
+#define _priv_parse_53(arg, ...) _priv_exchange arg, _priv_parse_52(__VA_ARGS__)
+#define _priv_parse_54(arg, ...) _priv_exchange arg, _priv_parse_53(__VA_ARGS__)
+#define _priv_parse_55(arg, ...) _priv_exchange arg, _priv_parse_54(__VA_ARGS__)
+#define _priv_parse_56(arg, ...) _priv_exchange arg, _priv_parse_55(__VA_ARGS__)
+#define _priv_parse_57(arg, ...) _priv_exchange arg, _priv_parse_56(__VA_ARGS__)
+#define _priv_parse_58(arg, ...) _priv_exchange arg, _priv_parse_57(__VA_ARGS__)
+#define _priv_parse_59(arg, ...) _priv_exchange arg, _priv_parse_58(__VA_ARGS__)
+#define _priv_parse_60(arg, ...) _priv_exchange arg, _priv_parse_59(__VA_ARGS__)
+#define _priv_parse_61(arg, ...) _priv_exchange arg, _priv_parse_60(__VA_ARGS__)
+#define _priv_parse_62(arg, ...) _priv_exchange arg, _priv_parse_61(__VA_ARGS__)
+#define _priv_parse_63(arg, ...) _priv_exchange arg, _priv_parse_62(__VA_ARGS__)
 
-#define _priv_parse_4( \
-    arg_1_N, arg_1_T,  \
-    arg_2_N, arg_2_T,  \
-    ...                \
-) arg_1_T arg_1_N,     \
-  arg_2_T arg_2_N
+#define _priv_select(n, x) n ## _ ## x
+#define _priv_overload(n, x) _priv_select(n, x)
 
-#define _priv_parse_6( \
-    arg_1_N, arg_1_T,  \
-    arg_2_N, arg_2_T,  \
-    arg_3_N, arg_3_T,  \
-    ...                \
-) arg_1_T arg_1_N,     \
-  arg_2_T arg_2_N,     \
-  arg_3_T arg_3_N
+#define _priv_first(n, ...) n
 
-#define _priv_parse_8( \
-    arg_1_N, arg_1_T,  \
-    arg_2_N, arg_2_T,  \
-    arg_3_N, arg_3_T,  \
-    arg_4_N, arg_4_T,  \
-    ...                \
-) arg_1_T arg_1_N,     \
-  arg_2_T arg_2_N,     \
-  arg_3_T arg_3_N,     \
-  arg_4_T arg_4_N
-
-#define _priv_parse_10( \
-    arg_1_N, arg_1_T,   \
-    arg_2_N, arg_2_T,   \
-    arg_3_N, arg_3_T,   \
-    arg_4_N, arg_4_T,   \
-    arg_5_N, arg_5_T,   \
-    ...                 \
-) arg_1_T arg_1_N,      \
-  arg_2_T arg_2_N,      \
-  arg_3_T arg_3_N,      \
-  arg_4_T arg_4_N,      \
-  arg_5_T arg_5_N
-
-#define _priv_parse_12( \
-    arg_1_N, arg_1_T,   \
-    arg_2_N, arg_2_T,   \
-    arg_3_N, arg_3_T,   \
-    arg_4_N, arg_4_T,   \
-    arg_5_N, arg_5_T,   \
-    arg_6_N, arg_6_T,   \
-    ...                 \
-) arg_1_T arg_1_N,      \
-  arg_2_T arg_2_N,      \
-  arg_3_T arg_3_N,      \
-  arg_4_T arg_4_N,      \
-  arg_5_T arg_5_N,      \
-  arg_6_T arg_6_N
-
-#define _priv_parse_14( \
-    arg_1_N, arg_1_T,   \
-    arg_2_N, arg_2_T,   \
-    arg_3_N, arg_3_T,   \
-    arg_4_N, arg_4_T,   \
-    arg_5_N, arg_5_T,   \
-    arg_6_N, arg_6_T,   \
-    arg_7_N, arg_7_T,   \
-    ...                 \
-) arg_1_T arg_1_N,      \
-  arg_2_T arg_2_N,      \
-  arg_3_T arg_3_N,      \
-  arg_4_T arg_4_N,      \
-  arg_5_T arg_5_N,      \
-  arg_6_T arg_6_N,      \
-  arg_7_T arg_7_N
-
-#define _priv_parse_16( \
-    arg_1_N, arg_1_T,   \
-    arg_2_N, arg_2_T,   \
-    arg_3_N, arg_3_T,   \
-    arg_4_N, arg_4_T,   \
-    arg_5_N, arg_5_T,   \
-    arg_6_N, arg_6_T,   \
-    arg_7_N, arg_7_T,   \
-    arg_8_N, arg_8_T,   \
-    ...                 \
-) arg_1_T arg_1_N,      \
-  arg_2_T arg_2_N,      \
-  arg_3_T arg_3_N,      \
-  arg_4_T arg_4_N,      \
-  arg_5_T arg_5_N,      \
-  arg_6_T arg_6_N,      \
-  arg_7_T arg_7_N,      \
-  arg_8_T arg_8_N
-
-#define _priv_parse_18( \
-    arg_1_N, arg_1_T,   \
-    arg_2_N, arg_2_T,   \
-    arg_3_N, arg_3_T,   \
-    arg_4_N, arg_4_T,   \
-    arg_5_N, arg_5_T,   \
-    arg_6_N, arg_6_T,   \
-    arg_7_N, arg_7_T,   \
-    arg_8_N, arg_8_T,   \
-    arg_9_N, arg_9_T,   \
-    ...                 \
-) arg_1_T arg_1_N,      \
-  arg_2_T arg_2_N,      \
-  arg_3_T arg_3_N,      \
-  arg_4_T arg_4_N,      \
-  arg_5_T arg_5_N,      \
-  arg_6_T arg_6_N,      \
-  arg_7_T arg_7_N,      \
-  arg_8_T arg_8_N,      \
-  arg_9_T arg_9_N
-
-#define _priv_parse_20( \
-    arg_1_N, arg_1_T,   \
-    arg_2_N, arg_2_T,   \
-    arg_3_N, arg_3_T,   \
-    arg_4_N, arg_4_T,   \
-    arg_5_N, arg_5_T,   \
-    arg_6_N, arg_6_T,   \
-    arg_7_N, arg_7_T,   \
-    arg_8_N, arg_8_T,   \
-    arg_9_N, arg_9_T,   \
-    arg_10_N, arg_10_T, \
-    ...                 \
-) arg_1_T arg_1_N,      \
-  arg_2_T arg_2_N,      \
-  arg_3_T arg_3_N,      \
-  arg_4_T arg_4_N,      \
-  arg_5_T arg_5_N,      \
-  arg_6_T arg_6_N,      \
-  arg_7_T arg_7_N,      \
-  arg_8_T arg_8_N,      \
-  arg_9_T arg_9_N,      \
-  arg_10_T arg_10_N
-
-#define _priv_select(n) _priv_parse ## _ ## n
-#define _priv_overload(n) _priv_select(n)
-
-#define _priv_parse(...) (_priv_overload(_priv_argc(__VA_ARGS__))(__VA_ARGS__))
+#define _priv_return(...) _priv_first(__VA_OPT__(__VA_ARGS__, ) void)
+#define _priv_parse(...) _priv_overload(_priv_parse, _priv_argc(__VA_ARGS__))(__VA_ARGS__)
 
 #endif

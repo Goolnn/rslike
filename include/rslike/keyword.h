@@ -3,9 +3,8 @@
 
 #include "rslike/priv/func.h"
 
-#define let(N, T) const T N
-#define let_mut(N, T) T N
+#define let(N, T) T N
 
-#define fn(N, P, R) R N _priv_parse P
+#define fn(n, p, ...) _priv_return(__VA_ARGS__) n (_priv_parse p)
 
 #endif
