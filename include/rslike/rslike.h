@@ -8,5 +8,6 @@
 #include "rslike/enum.h"
 #include "rslike/func.h"
 #include "rslike/struct.h"
+#include "rslike/error.h"
 
 #endif
