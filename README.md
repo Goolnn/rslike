@@ -8,7 +8,7 @@ This is a C headeronly library inspired by Rust, designed to fill the gaps in C 
 #include <rslike/rslike.h>
 
 define_error(Calc, (
-	TooBig
+    TooBig
 ));
 
 define_result(i32, Error(Calc));
@@ -27,7 +27,7 @@ fn(add, (
 }
 
 fn(main, (), int) {
-	if_let_ok(i32, add(6, 2), sum, {
+    if_let_ok(i32, add(6, 2), sum, {
         printf("6 and 2 is %d\n", sum);
     })
 
@@ -35,7 +35,7 @@ fn(main, (), int) {
         printf("12 and 26 is %s\n", VariantName(Error(Calc), err));
     })
 
-	return 0;
+    return 0;
 }
 ```
 
