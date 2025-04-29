@@ -59,15 +59,15 @@ if (self.status == Option_Some) {  \
     f                              \
 }
 
-#define handle_option(T, E, self, handle_some, handle_none) \
-{                                                           \
-    Option(T) option = self;                                \
-    if (option.status == Option_Some) {                     \
-        T some = option.some;                               \
-        handle_some;                                        \
-    } else if (option.status == Option_None) {              \
-        handle_none;                                        \
-    }                                                       \
+#define handle_option(T, self, handle_some, handle_none) \
+{                                                        \
+    Option(T) option = self;                             \
+    if (option.status == Option_Some) {                  \
+        T some = option.some;                            \
+        handle_some;                                     \
+    } else if (option.status == Option_None) {           \
+        handle_none;                                     \
+    }                                                    \
 }
 
 #endif
