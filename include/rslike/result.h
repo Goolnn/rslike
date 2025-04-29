@@ -1,6 +1,8 @@
 #ifndef GOOLNN_RSLIKE_RESULT_H
 #define GOOLNN_RSLIKE_RESULT_H
 
+#include "rslike/priv/util.h"
+
 typedef enum {
     Result_Ok,
     Result_Err
@@ -15,42 +17,42 @@ typedef struct {                                         \
         T ok;                                            \
         E err;                                           \
     };                                                   \
-} Result ## _ ## T ## _ ## E;                            \
-Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## ok(  \
-    Result ## _ ## T ## _ ## E self                      \
+} Result(T, E);                                          \
+Option(T) _priv_combine(Result(T, E), ok)(               \
+    Result(T, E) self                                    \
 ) {                                                      \
     if (self.status == Result_Ok) {                      \
-        return (Option ## _ ## T) {                      \
+        return (Option(T)) {                             \
             .status = Option_Some,                       \
             .some = self.ok                              \
         };                                               \
     }                                                    \
-    return (Option ## _ ## T) {                          \
+    return (Option(T)) {                                 \
         .status = Option_None,                           \
     };                                                   \
 }                                                        \
-Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## err( \
-    Result ## _ ## T ## _ ## E self                      \
+Option(T) _priv_combine(Result(T, E), err)(              \
+    Result(T, E) self                                    \
 ) {                                                      \
     if (self.status == Result_Err) {                     \
-        return (Option ## _ ## T) {                      \
+        return (Option(T)) {                             \
             .status = Option_Some,                       \
             .some = self.err                             \
         };                                               \
     }                                                    \
-    return (Option ## _ ## T) {                          \
+    return (Option(T)) {                                 \
         .status = Option_None,                           \
     };                                                   \
 }
 
 #define Ok(T, E, value)        \
-(Result ## _ ## T ## _ ## E) { \
+(Result(T, E)) {               \
     .status = Result_Ok,       \
     .ok = value,               \
 }
 
 #define Err(T, E, value)       \
-(Result ## _ ## T ## _ ## E) { \
+(Result(T, E)) {               \
     .status = Result_Err,      \
     .err = value,              \
 }
@@ -75,8 +77,8 @@ Option ## _ ## T Result ## _ ## T ## _ ## E ## _ ## err( \
     }                                                                 \
 }
 
-#define result_ok(T, E, self) Result ## _ ## T ## _ ## E ## _ ## ok(self)
-#define result_err(T, E, self) Result ## _ ## T ## _ ## E ## _ ## err(self)
+#define result_ok(T, E, self) _priv_combine(Result(T, E), ok)(self)
+#define result_err(T, E, self) _priv_combine(Result(T, E), err)(self)
 
 #define result_unwrap(T, E, self) (self.ok);               \
 {                                                          \
