@@ -5,7 +5,7 @@
 
 #define Varient(n, v) _priv_combine(n, v)
 
-#define enum(n, s)                                   \
+#define define_enum(n, s)                            \
 typedef enum {                                       \
     _priv_varient(n, _priv_unwrap s)                 \
     _priv_combine(n, Undefined)                      \

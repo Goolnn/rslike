@@ -3,9 +3,9 @@
 
 #include "rslike/priv/struct.h"
 
-#define struct(n, s) \
-typedef struct {     \
-    _priv_member s   \
+#define define_struct(n, s) \
+typedef struct {            \
+    _priv_member s          \
 } n
 
 #endif

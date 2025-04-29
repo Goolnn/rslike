@@ -5,6 +5,6 @@
 
 #define Error(n) n ## Error
 
-#define error(n, s) enum(n ## Error, s)
+#define define_error(n, s) define_enum(n ## Error, s)
 
 #endif
