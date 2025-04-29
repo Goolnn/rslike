@@ -26,7 +26,11 @@
 
 #define _priv_exchange(a, b) b a
 
+#define _priv_first(n, ...) n
+
 #define _priv_select(n, x) n ## _ ## x
 #define _priv_overload(n, x) _priv_select(n, x)
+
+#define _priv_unwrap(...) __VA_ARGS__
 
 #endif

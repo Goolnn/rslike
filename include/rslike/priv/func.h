@@ -68,8 +68,6 @@
 #define _priv_parse_62(arg, ...) _priv_exchange arg, _priv_parse_61(__VA_ARGS__)
 #define _priv_parse_63(arg, ...) _priv_exchange arg, _priv_parse_62(__VA_ARGS__)
 
-#define _priv_first(n, ...) n
-
 #define _priv_return(...) _priv_first(__VA_OPT__(__VA_ARGS__, ) void)
 #define _priv_parse(...) _priv_overload(_priv_parse, _priv_argc(__VA_ARGS__))(__VA_ARGS__)
 
