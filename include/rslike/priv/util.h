@@ -26,7 +26,8 @@
 
 #define _priv_exchange(a, b) b a
 
-#define _priv_first(n, ...) n
+#define _priv_first(a, ...) a
+#define _priv_second(a, b, ...) b
 
 #define _priv_select(n, x) n ## _ ## x
 #define _priv_overload(n, x) _priv_select(n, x)
@@ -34,5 +35,12 @@
 #define _priv_unwrap(...) __VA_ARGS__
 
 #define _priv_combine(n, v) _priv_select(n, v)
+
+#define _priv_probe() ~, 1
+
+#define _priv_is_probe(...) _priv_second(__VA_ARGS__, 0)
+#define _priv_is_paren_probe(...) _priv_probe()
+
+#define _priv_is_paren(x) _priv_is_probe(_priv_is_paren_probe x)
 
 #endif
