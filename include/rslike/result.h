@@ -19,9 +19,7 @@ typedef struct {                                         \
         E err;                                           \
     };                                                   \
 } Result(T, E);                                          \
-define_option(T);                                        \
-define_option(E);                                        \
-Option(T) _priv_combine(Result(T, E), ok)(               \
+inline Option(T) _priv_combine(Result(T, E), ok)(        \
     Result(T, E) self                                    \
 ) {                                                      \
     if (self.status == Result_Ok) {                      \
@@ -34,7 +32,7 @@ Option(T) _priv_combine(Result(T, E), ok)(               \
         .status = Option_None,                           \
     };                                                   \
 }                                                        \
-Option(E) _priv_combine(Result(T, E), err)(              \
+inline Option(E) _priv_combine(Result(T, E), err)(       \
     Result(T, E) self                                    \
 ) {                                                      \
     if (self.status == Result_Err) {                     \
