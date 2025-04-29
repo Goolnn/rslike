@@ -71,4 +71,6 @@
 #define _priv_return(...) _priv_first(__VA_OPT__(__VA_ARGS__, ) void)
 #define _priv_param(...) _priv_overload(_priv_param, _priv_argc(__VA_ARGS__))(__VA_ARGS__)
 
+#define _priv_func(n, p, ...) _priv_return(__VA_ARGS__) n (_priv_param p)
+
 #endif

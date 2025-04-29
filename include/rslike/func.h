@@ -3,6 +3,6 @@
 
 #include "rslike/priv/func.h"
 
-#define fn(n, p, ...) _priv_return(__VA_ARGS__) n (_priv_param p)
+#define fn(n, p, ...) _priv_func(n, p, __VA_ARGS__)
 
 #endif
