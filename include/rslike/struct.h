@@ -4,11 +4,16 @@
 #include "rslike/priv/struct.h"
 
 #define declare_struct(n) \
-typedef struct n n
+typedef struct n* n
 
 #define define_struct(n, s) \
-typedef struct {            \
+struct n {                  \
     _priv_member s          \
+}
+
+#define typedef_struct(n, s) \
+typedef struct {             \
+    _priv_member s           \
 } n
 
 #endif
