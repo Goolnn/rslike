@@ -8,12 +8,12 @@ typedef struct n* n
 
 #define define_struct(n, s) \
 struct n {                  \
-    _priv_member s          \
+    priv_member s          \
 }
 
 #define typedef_struct(n, s) \
 typedef struct {             \
-    _priv_member s           \
+    priv_member s           \
 } n
 
 #endif

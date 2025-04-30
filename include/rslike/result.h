@@ -1,49 +1,50 @@
 #ifndef GOOLNN_RSLIKE_RESULT_H
 #define GOOLNN_RSLIKE_RESULT_H
 
+#include <xmacros/xmacros.h>
+
 #include "rslike/priv/result.h"
-#include "rslike/priv/util.h"
 
 typedef enum {
     Result_Ok,
     Result_Err
 } Result;
 
-#define Result(T, E) _priv_combine_result(T, E)
+#define Result(T, E) xmacros_combine(Result, T, E)
 
-#define define_result(T, E)                               \
-typedef struct {                                          \
-    Result status;                                        \
-    union {                                               \
-        T ok;                                             \
-        E err;                                            \
-    };                                                    \
-} Result(T, E);                                           \
-static inline Option(T) _priv_combine(Result(T, E), ok)(  \
-    Result(T, E) self                                     \
-) {                                                       \
-    if (self.status == Result_Ok) {                       \
-        return (Option(T)) {                              \
-            .status = Option_Some,                        \
-            .some = self.ok                               \
-        };                                                \
-    }                                                     \
-    return (Option(T)) {                                  \
-        .status = Option_None,                            \
-    };                                                    \
-}                                                         \
-static inline Option(E) _priv_combine(Result(T, E), err)( \
-    Result(T, E) self                                     \
-) {                                                       \
-    if (self.status == Result_Err) {                      \
-        return (Option(E)) {                              \
-            .status = Option_Some,                        \
-            .some = self.err                              \
-        };                                                \
-    }                                                     \
-    return (Option(E)) {                                  \
-        .status = Option_None,                            \
-    };                                                    \
+#define define_result(T, E)                                 \
+typedef struct {                                            \
+    Result status;                                          \
+    union {                                                 \
+        T ok;                                               \
+        E err;                                              \
+    };                                                      \
+} Result(T, E);                                             \
+static inline Option(T) xmacros_combine(Result(T, E), ok)(  \
+    Result(T, E) self                                       \
+) {                                                         \
+    if (self.status == Result_Ok) {                         \
+        return (Option(T)) {                                \
+            .status = Option_Some,                          \
+            .some = self.ok                                 \
+        };                                                  \
+    }                                                       \
+    return (Option(T)) {                                    \
+        .status = Option_None,                              \
+    };                                                      \
+}                                                           \
+static inline Option(E) xmacros_combine(Result(T, E), err)( \
+    Result(T, E) self                                       \
+) {                                                         \
+    if (self.status == Result_Err) {                        \
+        return (Option(E)) {                                \
+            .status = Option_Some,                          \
+            .some = self.err                                \
+        };                                                  \
+    }                                                       \
+    return (Option(E)) {                                    \
+        .status = Option_None,                              \
+    };                                                      \
 }
 
 #define Ok(T, E, value)        \
@@ -78,8 +79,8 @@ static inline Option(E) _priv_combine(Result(T, E), err)( \
     }                                                                 \
 }
 
-#define result_ok(T, E, self) _priv_combine(Result(T, E), ok)(self)
-#define result_err(T, E, self) _priv_combine(Result(T, E), err)(self)
+#define result_ok(T, E, self) xmacros_combine(Result(T, E), ok)(self)
+#define result_err(T, E, self) xmacros_combine(Result(T, E), err)(self)
 
 #define result_unwrap(T, E, self) (self.ok);               \
 {                                                          \

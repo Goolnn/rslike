@@ -1,6 +1,8 @@
 #ifndef GOOLNN_RSLIKE_OPTION_H
 #define GOOLNN_RSLIKE_OPTION_H
 
+#include <xmacros/xmacros.h>
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -9,7 +11,7 @@ typedef enum {
     Option_None
 } Option;
 
-#define Option(T) Option ## _ ## T
+#define Option(T) xmacros_combine(Option, T)
 
 #define define_option(T) \
 typedef struct {         \
