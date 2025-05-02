@@ -3,17 +3,16 @@
 
 #include <xmacros/xmacros.h>
 
-#define priv_variant_name_case(n, v, s) \
+#define priv_variant_name_case(n, v) \
 case xmacros_combine(n, v):             \
-    return #s;
+    return #v;
 
 #define priv_parse_case_0(a) a
 #define priv_parse_case_1(v) xmacros_argn(0, xmacros_unwrap v)
 
 #define priv_parse_case(v) xmacros_overload(priv_parse_case, xmacros_is_paren(v))(v)
 
-#define priv_variant_name_string(n, v, s) priv_variant_name_case(n, v, s)
-#define priv_variant_name_case_apply(n, v) priv_variant_name_string(n, v, xmacros_concat(n, ::, v))
+#define priv_variant_name_case_apply(n, v) priv_variant_name_case(n, v)
 
 #define priv_variant_name_0(n)
 #define priv_variant_name_1(n, v) priv_variant_name_case_apply(n, priv_parse_case(v))
