@@ -2,7 +2,7 @@ package("xmacros")
     set_kind("library", {headeronly = true})
     set_description("The xmacros package")
 
-    add_urls("https://github.com/Goolnn/rslike.git")
+    add_urls("https://github.com/Goolnn/xmacros.git")
 
     on_install(function (package)
         local configs = {}
