@@ -19,7 +19,7 @@ typedef struct {         \
     union {              \
         T some;          \
     };                   \
-} Option(T)
+} Option(T);
 
 #define Some(T, value)     \
 (Option(T)) {       \
