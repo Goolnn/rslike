@@ -13,7 +13,7 @@
 
 #define priv_parse_param(n, t) xmacros_combine(priv_mut, priv_is_mut(n))(n, t)
 
-#define priv_parse_params_0(...) (xmacros_prefix_concat(priv_parse_param, __VA_ARGS__))
+#define priv_parse_params_0(...) (xmacros_expand(xmacros_prefix_space(priv_parse_param, __VA_ARGS__)))
 #define priv_parse_params_1(...) ()
 
 #define priv_parse_params(...) xmacros_overload(priv_parse_params, xmacros_is_empty(__VA_ARGS__))(__VA_ARGS__)

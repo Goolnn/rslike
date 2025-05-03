@@ -10,7 +10,7 @@
 
 #define priv_is_assign(v) xmacros_overload(priv_is_assign, xmacros_is_paren(v))(v)
 
-#define priv_variants_0(n, ...) xmacros_prefix_combine(n, xmacros_prefix_concat(priv_is_assign, xmacros_wrap(__VA_ARGS__))),
+#define priv_variants_0(n, ...) xmacros_prefix_combine(n, xmacros_prefix_space(priv_is_assign, xmacros_wrap(__VA_ARGS__))),
 #define priv_variants_1(n, s)
 
 #define priv_variants(n, s) xmacros_overload(priv_variants, xmacros_is_empty(s))(n, s)
@@ -24,9 +24,9 @@ case v:                           \
 
 #define priv_variant_name(v) xmacros_overload(priv_variant_name, xmacros_is_paren(v))(v)
 
-#define priv_variant_names_0(n, ...) xmacros_prefix_concat(priv_variant_name, xmacros_wrap(__VA_ARGS__))
+#define priv_variant_names_0(n, ...) xmacros_prefix_space(priv_variant_name, xmacros_wrap(__VA_ARGS__))
 #define priv_variant_names_1(n, s)
 
-#define priv_variant_names(n, s) xmacros_space(xmacros_prefix_concat(priv_variant_name_case, xmacros_wrap(xmacros_prefix_combine(n, xmacros_overload(priv_variant_names, xmacros_is_empty(s))(n, s)))))
+#define priv_variant_names(n, s) xmacros_space(xmacros_prefix_space(priv_variant_name_case, xmacros_wrap(xmacros_prefix_combine(n, xmacros_overload(priv_variant_names, xmacros_is_empty(s))(n, s)))))
 
 #endif
