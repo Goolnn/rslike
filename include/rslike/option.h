@@ -3,6 +3,8 @@
 
 #include <xmacros/xmacros.h>
 
+#include <rslike/type.h>
+
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -22,13 +24,13 @@ typedef struct {         \
 } Option(T);
 
 #define Some(T, value)     \
-(Option(T)) {       \
+(Option(T)) {              \
     .status = Option_Some, \
     .some = value,         \
 }
 
 #define None(T)            \
-(Option(T)) {       \
+(Option(T)) {              \
     .status = Option_None, \
 }
 
@@ -71,5 +73,22 @@ if (self.status == Option_Some) {  \
         handle_none;                                     \
     }                                                    \
 }
+
+define_option(i8)
+define_option(i16)
+define_option(i32)
+define_option(i64)
+
+define_option(u8)
+define_option(u16)
+define_option(u32)
+define_option(u64)
+
+define_option(f32)
+define_option(f64)
+
+define_option(bool)
+
+define_option(str)
 
 #endif
