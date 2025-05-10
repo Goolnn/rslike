@@ -91,4 +91,6 @@ define_option(bool)
 
 define_option(str)
 
+define_option(unit)
+
 #endif
