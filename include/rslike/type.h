@@ -4,7 +4,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#define Unit 0;
+#define Unit 0
 
 typedef int8_t i8;
 typedef int16_t i16;
