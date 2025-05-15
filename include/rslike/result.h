@@ -3,7 +3,7 @@
 
 #include <xmacros/xmacros.h>
 
-#include "rslike/priv/result.h"
+#include <rslike/priv/result.h>
 
 typedef enum {
     Result_Ok,

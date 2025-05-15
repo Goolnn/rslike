@@ -1,7 +1,7 @@
 #ifndef GOOLNN_RSLIKE_ERROR_H
 #define GOOLNN_RSLIKE_ERROR_H
 
-#include "rslike/enum.h"
+#include <rslike/enum.h>
 
 #define Error(n) xmacros_concat(n, Error)
 

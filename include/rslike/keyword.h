@@ -1,7 +1,7 @@
 #ifndef GOOLNN_RSLIKE_KEYWORD_H
 #define GOOLNN_RSLIKE_KEYWORD_H
 
-#include "rslike/priv/keyword.h"
+#include <rslike/priv/keyword.h>
 
 #define let(n, t) priv_let(n, t)
 

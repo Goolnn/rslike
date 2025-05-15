@@ -1,7 +1,7 @@
 #ifndef GOOLNN_RSLIKE_ENUM_H
 #define GOOLNN_RSLIKE_ENUM_H
 
-#include "rslike/priv/enum.h"
+#include <rslike/priv/enum.h>
 
 #define Variant(n, v) xmacros_combine(n, v)
 #define VariantName(n, v) xmacros_combine(n, variant_name)(v)
