@@ -54,16 +54,20 @@ if (self.status == Option_Some) {  \
     }                                                    \
 }
 
-#define unwrap_option(T, ident, self, ...)         \
-T ident;                                           \
-{                                                  \
-    Option(T) option = self;                       \
-    if (option.status == Option_Some) {            \
-        ident = option.some;                       \
-    } else if (option.status == Option_None) {     \
-        __VA_OPT__(xmacros_argn(0, __VA_ARGS__);)  \
-        abort();                                   \
-    }                                              \
+#define unwrap_option(T, ident, self, ...)                  \
+T ident;                                                    \
+{                                                           \
+    Option(T) option = self;                                \
+    if (option.status == Option_Some) {                     \
+        ident = option.some;                                \
+    } else if (option.status == Option_None) {              \
+        __VA_OPT__(xmacros_argn(0, __VA_ARGS__);)           \
+        fprintf(                                            \
+            stderr,                                         \
+            "called `Option::unwrap()` on a `None` value\n" \
+        );                                                  \
+        abort();                                            \
+    }                                                       \
 }
 
 define_option(i8)
