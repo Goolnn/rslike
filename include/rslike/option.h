@@ -35,15 +35,6 @@ typedef struct {         \
 }
 
 #define option_is_some(self) (self.status == Option_Some)
-
-#define option_is_some_and(T, self, x, f) (self.status == Option_Some); \
-{                                                                       \
-    if (self.status == Option_Some) {                                   \
-        T x = self.some;                                                \
-        f                                                               \
-    }                                                                   \
-}
-
 #define option_is_none(self) (self.status == Option_None)
 
 #define if_let_some(T, self, x, f) \
