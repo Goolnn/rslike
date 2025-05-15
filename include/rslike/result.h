@@ -96,6 +96,7 @@ T ident;                                                   \
     if (result.status == Result_Ok) {                      \
         ident = result.ok;                                 \
     } else if (result.status == Result_Err) {              \
+        E err = result.err;                                \
         __VA_OPT__(xmacros_argn(0, __VA_ARGS__);)          \
         fprintf(                                           \
             stderr,                                        \
