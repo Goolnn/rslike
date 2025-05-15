@@ -3,7 +3,7 @@
 
 #include "rslike/enum.h"
 
-#define Error(n) n ## Error
+#define Error(n) xmacros_concat(n, Error)
 
 #define define_error(n, s) define_enum(n ## Error, s)
 
