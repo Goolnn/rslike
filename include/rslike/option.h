@@ -46,17 +46,6 @@ typedef struct {         \
 
 #define option_is_none(self) (self.status == Option_None)
 
-#define option_unwrap(T, self) (self.some);                 \
-{                                                           \
-    if (self.status == Option_None) {                       \
-        fprintf(                                            \
-            stderr,                                         \
-            "called `Option::unwrap()` on a `None` value\n" \
-        );                                                  \
-        abort();                                            \
-    }                                                       \
-}
-
 #define if_let_some(T, self, x, f) \
 if (self.status == Option_Some) {  \
     T x = self.some;               \
@@ -72,6 +61,18 @@ if (self.status == Option_Some) {  \
     } else if (option.status == Option_None) {           \
         handle_none;                                     \
     }                                                    \
+}
+
+#define unwrap_option(T, ident, self, ...)         \
+T ident;                                           \
+{                                                  \
+    Option(T) option = self;                       \
+    if (option.status == Option_Some) {            \
+        ident = option.some;                       \
+    } else if (option.status == Option_None) {     \
+        __VA_OPT__(xmacros_argn(0, __VA_ARGS__);)  \
+        abort();                                   \
+    }                                              \
 }
 
 define_option(i8)
